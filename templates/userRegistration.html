@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SignUp</title>
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+    <style>
+
+    </style>
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" >
+
+</head>
+<body>
+
+    <nav>
+        <div class="nav_button">
+            <a  class="link_button"  href="{% url 'weatherinput' %}" >Weather</a>
+            <a  class="link_button"  href="{% url 'about_page' %}">AboutUs</a>
+            <a  class="link_button"  href="{% url 'login_page' %}" >Login </a>
+            <a  class="link_button"  href="{% url 'home_page' %}" >Home</a>
+        </div>
+      </nav>
+
+
+     <div class="contain">
+
+        
+        <div class="container">
+
+            <div class ="table_form">
+            
+             <form method="post" action="{% url 'register_user' %}">
+                 {% csrf_token %}
+                 <table  >
+                <tr>
+                    <th><a style="text-decoration: none ; color:black;margin-right:80px;" href="{% url 'register_user' %}">Signup</a></th>
+                    <th><a style="text-decoration: none ; color:black" href="{% url 'login_page' %}">Login</a></th>
+
+                </tr>
+                <tr>
+                    <td  >Name:</td>
+                    <td><input class="inp" type="text" name="fname" placeholder="Enter full name" required></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td> <input class="inp"  type="text" name="umail" placeholder="Email id" required></td>
+                </tr>
+                <tr>
+                    <td>UserName:</td>
+                    <td><input class="inp"  type="text" name="uname" placeholder="Username" required></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input class="inp"  type="text" name="upass" placeholder="password" required></td>
+                </tr>
+                <tr>
+                    <td>Mobile Number:</td>
+                    <td> <input class="inp"  type="text" name="mnum" placeholder="mobile number" required></td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td><input class="inp"  type="text" name="address"placeholder="address" required></td>
+                </tr>
+                
+               
+            </table>
+                 <div class="button1">
+            <input style="padding:5px;font-size:15px;"  type="submit" value="Register" >
+                 <input style="padding:5px;font-size:15px;"  id="red" type="reset" value="clear" >
+                     </div>
+         </form>
+        
+        </div>
+        </div>
+
+        <div class="sign_para">
+            <diV class="one_line">
+              <p  style="font-size: 25px; margin-left:15px;">  Thanks for signup you will get extra details about weather for Registring .</p>
+
+            </diV>
+           
+              
+
+                <div class="image_o">
+                    <img  
+                    style="width:500px;transform: translate(100px,100px);border:2px solid black;box-shadow: 5px 5px;"
+                    src ="{% static 'images/SignUp.jpg' %}">
+                  </div>
+
+            </div>
+            
+        
+
+     </div>
+</body>
+</html>

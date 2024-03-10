@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<link rel="stylesheet" href="{% static 'css/successFeedback.css' %}">
+<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" >
+<head>
+    <meta charset="UTF-8">
+    <title>Success</title>
+</head>
+<body>
+   <!-- <center>
+    <div class="container">
+        <div class="message">
+            Feedback sent Successfully
+        </div>
+        <img class="image" src="{% static 'images/good.webp' %}">
+        <div >
+            <p id="para">Click on the below button to return to home page</p>
+            <a class="home_link" href="{% url 'home_page' %}">Back to Home</a>
+        </div>
+    </div>
+</center> -->
+<div class="hero"> 
+  <div class="hero__title">SuccessFully FeedBack send
+<div>
+
+    <div><a class="mid" href="{% url 'home_page' %}">Home</a></div>
+</div>
+
+  </div>
+    
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+</div>
+
+</body>
+</html>

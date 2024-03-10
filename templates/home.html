@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Home </title>
+     <link rel="stylesheet" href="{% static 'css/home.css' %}" >
+   <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" >
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* background-image: url('background.jpg'); */
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); 
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .btn {
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    .btn:hover {
+        background-color: #2980b9;
+    }
+    #one_img{
+    border:2px solid black;
+    border-radius:15px;
+        }
+</style>
+
+
+</head>
+<body>
+
+
+       <nav>
+      <div class="nav_button" >
+<!--          <a  class="link_button"  href="{% url 'weatherinput' %}" >Weather</a>-->
+          <a  class="link_button"  href="{% url 'register_user' %}">SignUp</a>
+          <a  class="link_button"  href="{% url 'login_page' %}" >Login </a>
+          <a  class="link_button"  href="{% url 'about_page' %}" >About Us</a>
+          <a  class="link_button"  href="{% url 'feedback' %}" >Send FeedBack</a>
+      </div>
+    </nav>
+    <div class="container">
+        <h1>Welcome to our Weather API Project</h1>
+<!--        <img id="one_img" src="https://superdevresources.com/wp-content/uploads/2014/02/Weather-Api.jpg" alt="Weather API Project">-->
+        <p>
+            Our project utilizes a weather API to provide you with up-to-date weather information for any location worldwide. You can access current weather conditions, forecasts, and more.
+        </p>
+        <p>
+            This project aims to demonstrate the capabilities of weather APIs and how they can be used in web applications to enhance user experience and provide valuable information.
+        </p>
+        <p>
+            To learn more about our project and explore the features of the weather API  It is better for you to signup.
+        </p>
+        <p> If you just want to see the weather click on below button</p>
+        <a href="{% url 'weatherinput' %}" class="btn">Explore Weather API</a>
+    </div>
+    
+
+
+
+</body>
+</html>

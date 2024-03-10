@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About us</title>
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" >
+
+</head>
+<body>
+
+
+     <nav>
+      <div class="nav_button">
+
+          <a class="link_button" href="{% url 'login_page' %}">Login</a>
+          <a class="link_button" href="{% url 'register_user' %}">Signup</a>
+          <a class="link_button" href="{% url 'home_page' %}">Home</a>
+      </div>
+    </nav>
+
+
+
+
+ <header><center><h2>About us</h2></center></header>
+    <main>
+        <div class="box">
+            <img class="imag" src="{% static 'image/cloud.jpg' %}" alt="clouds">
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container1">
+            <div class="box1">Name</div>
+            <div class="box1">Linkden profile links</div>
+            <div class="box1">Contact us</div>
+            <div class="box1">Kunaparaju rohit varma</div>
+            <div class="box1" >  <a  class="one" href="http://www.linkedin.com/in/kunaparaju-rohit-varma-a25411290">Rohit varma</a> </div>
+            <div class="box1">9963300488</div>
+
+            <div class="box1">Kantipudi Nithin Pawan</div>
+            <div class="box1" >  <a  class="one" href="https://www.linkedin.com/in/kantipudi-nithin-pawan-528a1728a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Nithin Pawan</a> </div>
+            <div class="box1">7386370425</div>
+
+            <div class="box1">Sujay chowary</div>
+            <div class="box1" >  <a  class="one" href="http://www.linkedin.com/in/kunaparaju-rohit-varma-a25411290">Sujay</a> </div>
+            <div class="box1">1234785964</div>
+        </div>
+    </footer>
+
+
+</body>
+</html>

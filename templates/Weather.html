@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Open Weather</title>
+    <!-- <link rel="stylesheet" href="{% static 'css/weather.css' %}"> -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" >
+  <link rel="stylesheet" href="{% static 'css/nonWeather.css' %}">
+
+</head>
+<body>
+
+
+
+      <div class="hold">
+        <header><h1 class="heading" >Welcome to    Weather API </h1></header>
+      </div>
+
+
+   <div class="big">
+
+    <div class="container">
+        <form method ="post" action="{% url 'weatherlogic' %}">
+            {% csrf_token %}
+               <label class="label" >Enter a City Name : </label>
+               <input class="input" type="text" name="place">
+
+  <br><br>
+               <button class="button" type="submit" value='submit'>Weather?</button>
+
+       </form>
+
+      </div>
+
+    <br><br>
+
+<div class="display">
+
+   <div class="para_container">
+
+    <div class="para">  City: {{ city }} <br> </div>
+    <div class="para">  Temparature : {{ temperature1 }} `c<br></div>
+    <div class="para">  Humidity : {{ humidity }}</div>
+   </div>
+     {% if  temperature1  > 32 %}
+           <div> <img src ="{% static 'images/Hotimage.jpeg' %}" ></div>
+
+     {% else %}
+            <img src="{% static 'images/image.png' %}" >
+    {% endif %}
+
+
+</div>
+
+   </div>
+
+
+
+
+</body>
+</html>

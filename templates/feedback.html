@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback Form</title>
+<link rel="stylesheet" href="{% static 'css/feedback.css' %}">
+<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" >
+</head>
+<body>
+<div class="container">
+    <h2>Feedback Form</h2>
+    <form method ="post" action="{% url 'feedback_logic' %}" >
+        {% csrf_token %}
+        <div>
+            <label>Name</label> <input style="padding:5px;font-size:15px;margin-bottom:10px;" type="text" name="uname">
+            <label for="rating1" >Rating:</label>
+
+            <div class="rating">
+                <input type="radio" id="rating5" name="rating" value="5">
+                <label for="rating5"></label>
+                <input type="radio" id="rating4" name="rating" value="4">
+                <label for="rating4"></label>
+                <input type="radio" id="rating3" name="rating" value="3">
+                <label for="rating3"></label>
+                <input type="radio" id="rating2" name="rating" value="2">
+                <label for="rating2"></label>
+                <input type="radio" id="rating1" name="rating" value="1">
+                <label for="rating1"></label>
+            </div>
+        </div>
+        <div>
+            <label for="description">Suggestions:</label>
+            <textarea id="description" name="suggestion" rows="4" cols="50"></textarea>
+        </div>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</div>
+</body>
+</html>

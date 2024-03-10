@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" >
+<!--    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">-->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+</head>
+<body>
+
+    
+    <nav>
+        <div class="nav_button">
+  
+            <a class="link_button" href="{% url 'weatherinput' %}">Weather</a>
+            <a class="link_button" href="{% url 'register_user' %}">Signup</a>
+            <a class="link_button" href="{% url 'home_page' %}">Home</a>
+        </div>
+      </nav>
+  
+      <div class="main_container">
+
+
+    <form method="post"  action="{% url 'login_logic' %}">
+        {% csrf_token %}
+        <div class="login_p1">
+
+        <div class="Login_box">
+
+          
+                    <div class="login_1">
+                        UserName : <input class="inpt" type="text" name="username"><br>
+                
+                        Password :  <input class="inpt" type="password" name="password"><br>
+                  
+               <input class="button_1"  type="submit" value="Login" >
+                    </div>
+        </div>
+        <div class="para_contt">
+            <img class="para_contt" src="{% static 'images/login.png' %}">
+        </div>
+    </div>
+
+</div>
+    </form>
+
+</body>
+</html>

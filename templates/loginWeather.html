@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Weather</title>
+   <link rel="stylesheet" href="{% static 'css/nonWeather.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" >
+
+</head>
+<body>
+
+      <div class="hold">
+        <header><h1 class="heading" >Welcome to  Weather API </h1></header>
+        
+      </div>
+     <div class="logout">
+      <a href="{% url 'home_page' %}">logout</a>
+     </div>
+
+   <div class="big">
+    
+    <div class="container">
+        <form method ="post" action="{% url 'weatherLoginlogic' %}">
+                {% csrf_token %}
+               <label class="label" >Enter a City Name : </label>
+               <input class="input" type="text" name="place">
+
+  <br><br>
+               <button class="button" type="submit" value='submit'>Weather?</button>
+
+       </form>
+
+      </div>
+
+    <br><br>
+
+<div class="display">
+
+   <div class="para_container">
+
+    <div class="para">  City: {{ city }} <br> </div>
+    <div class="para">  Temparature : {{ temperature1 }} `c<br></div>
+    <div class="para">  Humidity : {{ humidity }} %</div>
+    <div class="para">  wind_speed : {{wind_speed}} met/sec </div>
+    <div class="para">  Weather:{{weather_description}}</div>
+    
+   </div>
+     {% if  temperature1  > 32 %}
+    <div> <img  class="img_weather" src ="{% static 'images/Hotimage.jpeg' %}" ></div>
+
+     {% else %}
+       <div><img class="img_weather"  src="{% static 'images/image.png' %}" > </div>
+    {% endif %}
+
+
+</div>
+
+   </div>
+
+
+
+
+</body>
+</html>
