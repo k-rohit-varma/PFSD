@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Temperature Graph</title>
+<!-- Include Chart.js library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="temperatureChart" width="400" height="200"></canvas>
+
+    <script>
+        // Sample data for temperature
+        var temperatureData = {
+            labels: ['Fri', 'Sat', 'Sun', 'Mon', 'Tue', 'Wed','Thur'],
+            datasets: [{
+                label: 'Temperature (°C)',
+                data: [36, 35, 39, 41, 37, 40,37], // Example temperature data
+                backgroundColor: 'rgba(54, 162, 235, 0.2)', // Fill color
+                borderColor: 'rgba(54, 162, 235, 1)', // Border color
+                borderWidth: 1
+            }]
+        };
+
+        // Get the canvas element
+        var ctx = document.getElementById('temperatureChart').getContext('2d');
+
+        // Create the temperature chart
+        var temperatureChart = new Chart(ctx, {
+            type: 'line',
+            data: temperatureData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Temperature (°C)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: ' Week '
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

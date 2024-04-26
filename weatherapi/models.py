@@ -25,3 +25,13 @@ class UserFeedBack(models.Model):
     name=models.CharField(max_length=15,blank=False)
     class Meta:
         db_table="User_FeedBack_Form"
+
+class SaveUser(models.Model):
+    city=models.CharField(max_length=50)
+    temperatue=models.FloatField(max_length=50)
+    humidity=models.FloatField(max_length=50)
+    wind=models.FloatField(max_length=50)
+    weather=models.CharField(max_length=50)
+    class Meta:
+        db_table="Weather_Description"
+

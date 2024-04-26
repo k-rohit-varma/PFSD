@@ -16,4 +16,6 @@ urlpatterns = [
     path('feedback',views.feedback,name="feedback"),
     path('feedback_logic',views.feedback_logic,name="feedback_logic"),
     path('successFeedback',views.successFeedback,name="successFeedback"),
+    path('map_page',views.map,name="map_page"),
+    path('five-day',views.fiveday,name="five-day"),
 ]

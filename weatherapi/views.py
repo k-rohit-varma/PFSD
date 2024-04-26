@@ -2,6 +2,7 @@ from django.shortcuts import render
 import string
 import random
 import requests
+from django.core.mail import send_mail
 from django.contrib.sites.requests import RequestSite
 
 from django.http import HttpResponse, JsonResponse
@@ -9,7 +10,7 @@ from django.shortcuts import render,redirect
 from django.template import loader
 
 # Create your views here.
-from .models import User ,UserFeedBack
+from .models import User ,UserFeedBack,SaveUser
 
 def home(request):
     return render(request,'home.html')
@@ -35,6 +36,7 @@ def weatherlogic(request):
 def Userweatherlogic(request):
     if request.method == 'POST':
         place = request.POST.get('place', '')
+        e_mail=request.POST.get('e_mail')
         API_KEY = '9e32d96dd2ffa561218f3c7d8773ac3f'
 
         if not place:
@@ -53,6 +55,23 @@ def Userweatherlogic(request):
             wind_speed = data.get('wind', {}).get('speed', 0)
             weather_description = main_weather.get('description', '')
             weather_icon = main_weather.get('icon', '')
+
+            user=SaveUser(
+                city=place,
+                temperatue =   temperature_celsius,
+                humidity=humidity,
+                wind=wind_speed,
+                weather=weather_description
+            )
+            user.save()
+            subject = 'SampleMailFromDjangoApp'
+            message = f"The current temperature in {place.upper()} is {temperature_celsius}°C."
+            from_email = 'raise3327@gmail.com'
+            recipient_list = [e_mail]
+            send_mail(subject, message, from_email, recipient_list)
+            # html_content ='<h1>This is content </h1>'
+
+            # return render(request, 'email.html')
 
             return render(request, 'loginWeather.html', {
                 'city': str.upper(place),
@@ -104,7 +123,7 @@ def login_logic(request):
         pwd = request.POST.get('password')
         flag = User.objects.filter(username=uname,password=pwd).values()
         if flag:
-            return render(request,'loginWeather.html')
+            return render(request,'loginWeather.html',{'name':uname})
         else:
 
             return render(request,'login.html')
@@ -132,3 +151,9 @@ def feedback_logic(request):
     else:
         return render(request,'feedback.html')
 
+
+def map(request):
+    return render(request,'map.html')
+
+def fiveday(request):
+    return render(request,'fiveday.html')

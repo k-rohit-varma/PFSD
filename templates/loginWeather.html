@@ -6,12 +6,20 @@
     <title>User Weather</title>
    <link rel="stylesheet" href="{% static 'css/nonWeather.css' %}">
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" >
-
+    <style>
+        .next{
+            padding:7px;
+            background-color:wheat;
+            color:black;
+            border:1px solid black;
+            text-decoration:none;
+        }
+    </style>
 </head>
 <body>
 
       <div class="hold">
-        <header><h1 class="heading" >Welcome to  Weather API </h1></header>
+        <header><h1 class="heading" >Hello {{ name }} ! Welcome to Weather API </h1></header>
         
       </div>
      <div class="logout">
@@ -25,7 +33,8 @@
                 {% csrf_token %}
                <label class="label" >Enter a City Name : </label>
                <input class="input" type="text" name="place">
-
+                <label class="lable" >Enter correct Email</label>
+                <input class="input" type="email" name="e_mail">
   <br><br>
                <button class="button" type="submit" value='submit'>Weather?</button>
 
@@ -46,20 +55,18 @@
     <div class="para">  Weather:{{weather_description}}</div>
     
    </div>
-     {% if  temperature1  > 32 %}
-    <div> <img  class="img_weather" src ="{% static 'images/Hotimage.jpeg' %}" ></div>
+     {% if  temperature1  > 30 %}
+    <div> <img  class="img_weather" src ="{% static 'images/Hotimage.jpeg' %}" ></div><br>
+
 
      {% else %}
-       <div><img class="img_weather"  src="{% static 'images/image.png' %}" > </div>
-    {% endif %}
+       <div><img class="img_weather"  src="{% static 'images/image.png' %}" > </div><br>
 
+    {% endif %}
+  <a class="next"  href="{% url 'five-day' %}">Predict Next Five Days</a>
 
 </div>
 
    </div>
-
-
-
-
 </body>
 </html>
